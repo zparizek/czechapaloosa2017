@@ -1,5 +1,5 @@
 # IoT workshop - Flower watering 
-Czechapaloosa 2017
+**Czechapaloosa 2017**
 
 Arduino - base flower watering system
 
@@ -15,7 +15,9 @@ Requirements:
 * mac with ArduinoIDE
 
 Description:
-Loren ipsum
+Prepared stuff for czechapalooza
 
 
-<img src="http://maxpixel.freegreatpicture.com/Flower-Pot-Background-Dried-Leaves-2549917" alt="Desire result "width="200" height="150">
+![Our desired result](https://github.com/zparizek/czechapaloosa2017/images/dry_pot.jpg alt="Desired result "width="200" height="150">
+
+
