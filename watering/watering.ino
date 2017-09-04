@@ -1,38 +1,44 @@
-int normalCheckInterval = 30000;
-int debugCheckInterval = 1000; 
-int humidityProbePin = 1;
-int waterPumpPin = 0;  //assignes a pin for the soil sensor
-int dryThreshold = 500; // value where the soil is considered dry
-int pumpHoseTime = 2000; // time in ms for water to reach end of the hose
-int singleWaterDose = 1000; // time in ms for water to reach end of the hose
-int currentHumidity = 0;
-boolean debuggingMode = true;
 
-void setup() 
+const int humiditymeasureInPin = A1; //A1
+const int waterPumpPin = 2; //D2 
+const int ledPin = 4; //D4
+
+int dryThreshold = 520; // value below which is the soil considered dry
+int pumpHoseTime = 2100; // time in ms for water to reach end of the hose
+int singleWaterDose = 5; // single water dose
+int checkInterval = 2000; 
+
+void setup()
 {
   Serial.begin(9600);   //serial monitor for debugging purposes
-  pinMode(humidityProbePin, INPUT);  //sets the sensor pin as input
   pinMode(waterPumpPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
 }
 
-int readcurrentHumidity() 
+int readcurrentHumidity()
 {
-  currentHumidity = analogRead (humidityProbePin); //provides power to the sensor
+  int curentHumidityhelper;
+  curentHumidityhelper = analogRead (humiditymeasureInPin); 
   Serial.print("Sensor value: "); //for debugging
-  Serial.println(currentHumidity );
+  Serial.print(curentHumidityhelper );  
+  Serial.print(" Set threshold: "); //for debugging
+  Serial.println(dryThreshold ); 
+  return (curentHumidityhelper);
 }
 
-void loop() 
+void loop()
 {
-  currentHumidity = readcurrentHumidity();
-  if (currentHumidity < dryThreshold) {
-    //if the average soil value is dry
-    if (!debuggingMode) {
-      digitalWrite (waterPumpPin, HIGH); 
-      } 
-    delay (pumpHoseTime + singleWaterDose);
-    digitalWrite  (waterPumpPin, LOW);  
+  if (readcurrentHumidity() < dryThreshold) 
+  { 
+    digitalWrite (waterPumpPin, HIGH); //launch pump  
+    digitalWrite (ledPin, LOW); //light LED  
+    Serial.print ("Starting pump..."); //for debugging
+ 
+    delay (pumpHoseTime + singleWaterDose); // now we're pumping baby
+
+    Serial.println (" ...stopped pump"); //for debugging
+    digitalWrite  (waterPumpPin, LOW);  // stop pump
+    digitalWrite  (ledPin, HIGH); //stop led  
   }
-  if (!debuggingMode) { digitalWrite (waterPumpPin, HIGH); } 
-  delay(30*1000);
+  delay(checkInterval);
 }
