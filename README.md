@@ -20,6 +20,5 @@ Description:
 Prepared stuff for czechapalooza
 
 
-![Dry pot](https://github.com/zparizek/czechapaloosa2017/raw/master/images/dry_pot.jpg>
-
+![Dry pot](https://github.com/zparizek/czechapaloosa2017/raw/master/images/dry_pot.jpg)
 
