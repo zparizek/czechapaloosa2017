@@ -1,23 +1,25 @@
 # IoT workshop - Flower watering 
 **Czechapaloosa 2017**
 
-Arduino - base flower watering system
-
-image goes here
-
+Arduino-based flower watering system
 
 Requirements:
-* Arduino or arduino like
-* breadboard
+* mac with ArduinoIDE
+* drivers (see the slides)
+* dry flower
+
+The rest will waiting ther there for ya
+* Arduino or arduino like 
+* Breadboard
 * jumper cables
 * humidity sensor
 * water pump
-* mac with ArduinoIDE
+
 
 Description:
 Prepared stuff for czechapalooza
 
 
-![Our desired result](https://github.com/zparizek/czechapaloosa2017/images/dry_pot.jpg alt="Desired result "width="200" height="150">
+![Dry pot](https://github.com/zparizek/czechapaloosa2017/raw/master/images/dry_pot.jpg>
 
 
