@@ -4,7 +4,7 @@
 Arduino-based flower watering system
 
 Requirements:
-* mac with ArduinoIDE
+* mac with ArduinoIDE (or account on https://codebender.cc/)
 * drivers (see the slides)
 * dry flower
 
